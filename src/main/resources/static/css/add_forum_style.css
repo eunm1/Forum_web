@@ -1,0 +1,142 @@
+.writing-wrap{
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.writing-wrap > .writing-box{
+    margin : 20px 30px;
+}
+
+.writing-wrap > .writing-box > .title{
+    padding-bottom: px;
+    border-bottom: 3px solid #8e8e8e;
+    position: relative;
+}
+
+.writing-wrap > .writing-box > .title > span:first-child{
+    font-size: 35px;
+    padding-right: 20px;
+}
+.writing-wrap > .writing-box > .title > .detail-title{
+    position: absolute;
+    width : calc((100% - 200px)/2); /*title의 사이즈에 따라 유기적으로 변하게 js설정*/
+    right: 20px;
+    bottom: 10px;
+}
+.writing-wrap > .writing-box > .title > .detail-title > p{
+    padding-left: 10px;
+    margin-bottom : 0;
+}
+.writing-wrap > .writing-box > .content{
+    margin-top: 20px;
+    width : 100%;
+    height: 100%;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #8e8e8e;
+    margin-bottom: 15px;
+}
+.writing-wrap > .writing-box > .content > .img-box{
+    display: block;
+    
+    width : 100%;
+    height: 100%;
+    text-align: center;
+}
+.writing-wrap > .writing-box > .content > .img-box > img{ 
+    /*이미지 있으면 보이기*/
+    width : 40%;
+}
+.writing-wrap > .writing-box > .content > .img-box.active{
+    display: block;
+    
+}
+.writing-wrap > .writing-box > .content > p{
+    margin-top: 20px;
+    width : 100%;
+    font-size: 16px;
+}
+
+.writing-wrap > .writing-box > .add-box{
+    padding: 5px;
+    font-size: 16px;
+}
+.writing-wrap > .writing-box > .add-box > .fileName{
+    font-size: 14px;
+    padding-left: 10px;
+    color : #3caeff;
+    width: calc(100% - 120px);
+    line-height: 27px;
+}
+.writing-wrap > .writing-box > .add-box > .file{
+    margin-left: 10px;
+    width : 90px;
+}
+.writing-wrap > .writing-box > .add-box > .add-img{
+    text-align: center;
+    box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.5);
+    color : #5c5c5c;
+    line-height: 5px;
+    margin-left: 10px;
+}
+.writing-wrap > .writing-box > .add-box > .add-img:hover{
+    background-position: right;
+    box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.1);
+    color : #b22222;
+}
+.writing-wrap > .writing-box > .add-box > .add-img > p{
+    margin-top: 10px;
+}
+.writing-wrap > .writing-box > .add-btn,
+.writing-wrap > .writing-box > .delete-btn{
+    display: block; 
+}
+.writing-wrap > .writing-box > .delete-btn:hover,
+.writing-wrap > .writing-box > .add-btn:hover{
+    color : #9fc2cb;
+}
+
+.writing-wrap > .writing-box > .delete-btn > input,
+.writing-wrap > .writing-box > .add-btn > input{
+    margin: 0;
+    padding: 4px 20px;
+    border-radius: 15%;
+    color : #ecedee;
+    font-size: 18px;
+    background-color: #7a7378;
+}
+.writing-wrap > .writing-box > .delete-btn > a{
+padding: 4px 20px;
+    border-radius: 15%;
+    color : #ecedee;
+    font-size: 18px;
+    background-color: #7a7378;
+    margin-right : 10px;
+}
+.writing-wrap > .writing-box > .delete-btn > input:hover,
+.writing-wrap > .writing-box > .add-btn > input:hover{
+    color : #9fc2cb;
+}
+
+.writing-wrap > .writing-box > .title > input{
+    width : 100%;
+    color : #3d3b3e;
+    font-size: 35px;
+    background-color: inherit;
+    border: none;
+    font-weight: 600;
+}
+
+.writing-wrap > .writing-box > .content > input::placeholder,
+.writing-wrap > .writing-box > .title > input::placeholder{
+    color : #9f9f9f;
+    font-weight: 300;
+}
+
+.writing-wrap > .writing-box > .content > input{
+     width : 100%;
+    font-size: 17px;
+    background-color: inherit;
+    border: none;
+    color : #3d3b3e;
+    font-weight: 500;
+}

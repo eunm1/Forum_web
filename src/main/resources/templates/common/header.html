@@ -1,0 +1,40 @@
+<div class="top-menu point-color">
+    <div class="top-menu-wrap row text-style con">
+        <div class="logo-wrap cell">
+            <div class="logo-content"><a href="./main_forum.html" th:href="@{/forum/main}" >Forum</a></div>
+        </div>
+        <div class="develop-env cell"><a href="./develop_env.html" th:href="@{/forum/develop_env}"><p>개발 환경</p></a></div>
+        <div class="develop-process cell"><a href="./develop_pro.html" th:href="@{/forum/develop_pro}"><p>개발 과정</p></a></div>
+        <div class="github cell"><a href="#"><p>Git Hub</p></a></div>
+        <div class="login-wrap cell-right">
+            <div class="login-content cursor-point" sec:authorize="isAnonymous()"><p>Login</p>
+                <form class="login-form" action="/login" method="post">
+                    <p>Login</p>
+                    <!--아이콘 추가-->
+                    <div class="input-data">
+                        <input type="text" class="userId" placeholder="ID" name="loginIdText">
+                        <br>
+                        <input type="Password" class="userPass" placeholder="Password" name="loginPwText">
+                        <input type="text" class = "name" placeholder="name" name="nickname">
+                    </div>
+                    <div class="login-btn-box">
+                        <div class="login"><input type="submit" role="button" value="Log in"></div>
+                        <div class="signup-btn"><input type="submit" role="button" value="Sign up"></div>
+                        <div class="login-btn-box-bottom row">
+                            <div class="signup cell">Sign up</div>
+                            <div class="find-id-Pass cell"><a href="#">ID/Password 찾기</a></div>
+                        </div>
+                    </div>
+                </form>
+                <form class="hidden-login-form" action="/login" method="post">
+                    <input type="hidden" class="Id" name="loginId">
+                    <input type="hidden" class="Pw" name="loginPw">
+                    <input type="hidden" class="nickname" name="nickname">
+                </form>
+            </div>
+        </div>
+        <div class="logout-wrap cell-right" sec:authorize="isAuthenticated()">
+            <a th:href="@{/logout}">Logout</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판</title>
+    <!--Jquery-->
+    <script th:src="@{/js/jquery-3.5.1.min.js}" src="../static/js/jquery-3.5.1.min.js" ></script>
+    <!-- boot strap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!--js-->
+    <script th:src="@{/js/script.js}" src="../static/js/script.js"></script>
+    <!--css-->
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css" href="../static/css/style.css">
+    
+</head>
+<body>
+    <script th:inline="javascript">
+        var tlist = '[[${list}]]';
+        imgList(tlist);
+    </script>
+
+ <p class="test" th:text="${loginMsg}" hidden="true"></p>
+ <header th:insert="./common/header.html"></header>
+   
+    <div class="main-cover">
+        <div class="main-cover-img"></div> 
+    </div>
+
+    <div class="forum-wrap con box-size-border">
+        <div class="forum box-size-border">
+            <div class="title">
+                <p>게시판</p>
+                <div>
+                    <form class="search-wrap" action="/forum/search" method="get">
+                        <input id="r1" type="radio" name="search_radio" value="1" checked><label for="r1">제목</label>
+                        <!--<input id="r2" type="radio" name="search_radio" value="2"><label for="r2">작성자</label> join해야함-->
+                        <input id="r3" type="radio" name="search_radio" value="3">
+                        <label for="r3">내용</label>
+                        <input id="r4" type="radio" name="search_radio" value="4">
+                        <label for="r4">제목+내용</label>
+                        <input class="search-box" type="text" name="keyword" placeholder="검색어를 입력해 주세요">
+                        <input class="search-btn" type="submit" role="button" value="검색">
+                    </form>
+                </div>
+            </div>
+            <div class="board">
+                <div class="container">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>번호</th>
+                                <th>제목</th>
+                                <th>작성자</th>
+                                <th>조회수</th>
+                                <th>작성일</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="article : ${articleList}">
+                                <td><span th:text="${article.id}"></span></td>
+                                <td>
+                                    <a th:href="@{'/forum/detail_article/'+${article.id}}">
+                                        <span th:text="${article.title}"></span>
+                                    </a>
+                                </td>
+                                <td><span th:text="${article.mid}"></span></td>
+                                <td><span th:text="${article.hit}"></span></td>
+                                <td><span th:text="${#temporals.format(article.createdDate, 'yy-MM-dd HH:mm')}"></span></td>
+                        </tbody>
+                    </table>
+                    <div class="write-wrap cell-right box-size-border" sec:authorize="isAuthenticated()">
+                        <div class="write-btn">
+                            <a th:href="@{/forum/add_article}">글쓰기</a>
+                        </div>
+                    </div>
+                    <div class="page-wrap row">
+                        <span class="page-content cell" th:if="${page != 1}">
+                            <a th:href="@{'/forum/main?page='+${page - 1}}">이전</a>
+                        </span>
+                        <span class="page-content cell" th:each="pageNum : ${pageList}" th:inline="text">
+                            <a th:href="@{'/forum/main?page='+${pageNum}}" th:style="${pageNum == page ? 'font-weight : 600; border-bottom : 1px solid black;':'font-weight : 300;'}">[[${pageNum}]]</a>
+                        </span>
+                        <span class="page-content cell" th:if="${page != lastPageNo}">
+                            <a th:href="@{'/forum/main?page='+${page + 1}}">다음</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RSA사용 js -->
+    <script src="../static/js/rsa/jsbn.js" th:src="@{/js/rsa/jsbn.js}"></script>
+    <script src="../static/js/rsa/prng4.js" th:src="@{/js/rsa/prng4.js}"></script>
+    <script src="../static/js/rsa/rng.js" th:src="@{/js/rsa/rng.js}"></script>
+    <script src="../static/js/rsa/rsa.js" th:src="@{/js/rsa/rsa.js}"></script>
+
+    <script>
+
+        var rsa = new RSAKey();
+        rsa.setPublic('[[${modulus}]]','[[${exponent}]]');
+
+        $(".login").click(function(e){
+            e.preventDefault();
+
+            var Id = $(".userId").val();
+            var Pw = $(".userPass").val();
+            if(Id == ""){
+                alert("아이디를 입력 해주세요.");
+                $(".userId").focus();
+            }else if(Pw == ""){
+                alert("비밀번호를 입력 해주세요.");
+                $(".userPass").focus();
+            }else{
+                $(".Id").val(rsa.encrypt(Id));
+                $(".Pw").val(rsa.encrypt(Pw));
+
+                $(".userId").val("");
+                $(".userPass").val("");
+
+                $(".hidden-login-form").submit();
+            }
+        });
+
+        $(".signup-btn").click(function(e){
+            e.preventDefault();
+
+            var Id = $(".userId").val();
+            var Pw = $(".userPass").val();
+            var name = $(".name").val();
+
+            if(Id == ""){
+                alert("아이디를 입력 해주세요.");
+                $(".userId").focus();
+            }else if(Pw == ""){
+                alert("비밀번호를 입력 해주세요.");
+                $(".userPass").focus();
+            }else if(name == ""){
+                alert("이름을 입력 해주세요.");
+                $(".name").focus();
+            }else{
+                $(".Id").val(rsa.encrypt(Id));
+                $(".Pw").val(rsa.encrypt(Pw));
+                $(".nickname").val(name);
+
+                $(".userId").val("");
+                $(".userPass").val("");
+                $(".name").val("");
+
+                $(".hidden-login-form").submit();
+            }
+        });
+    </script>
+
+</body>
+</html>

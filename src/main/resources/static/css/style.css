@@ -1,0 +1,406 @@
+* {
+    padding : 0;
+    margin : 0;
+    outline: none;
+}
+
+html{
+    width : 100%;
+    height : 100%;
+}
+
+body{
+    width : 100%;
+    height : 100%;
+    background-color : #ecedee;
+}
+
+a {
+    color : inherit;
+    text-decoration: none;
+    cursor: pointer;
+    display: block;
+}
+
+a:hover{
+    color : #9fc2cb;
+    text-decoration: none;
+}
+
+ul, li{
+    list-style: none;
+}
+
+/*라이브러리*/
+.con{
+    max-width : 1200px;
+    margin: auto;
+}
+.row::after{
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.cell{
+    float: left;
+}
+
+.cell-right{
+    float:right;
+}
+
+.point-color {
+    background-color : #3d3b3e;
+    color : #D7e9ee;
+}/*#9fc2cb*/
+
+.cursor-point{
+    cursor: pointer;
+}
+
+.box-size-border{
+    box-sizing: border-box;
+}
+
+.p{
+/*    font-family: ; 폰트 지정*/ 
+}
+
+.text-style{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+th{
+    text-align: center;
+}
+
+.container{
+    padding: 0;
+    width : 100%;
+}
+
+input{
+    background-color: inherit;
+    border: none;
+    width: 100%;
+}
+/* Style start */
+/* top-menu st*/
+
+.top-menu{
+    width : 100%;
+}
+
+.top-menu > .top-menu-wrap{
+    height: 50px;
+    line-height: 50px;
+}
+.top-menu > .top-menu-wrap > .logo-wrap{
+    padding-left: 10px;
+    padding-right:10px;
+}
+.top-menu > .top-menu-wrap > div > a{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.top-menu > .top-menu-wrap > .login-wrap {
+    display: block;
+}
+.top-menu > .top-menu-wrap > .logout-wrap {
+    display: block;
+}
+.top-menu > .top-menu-wrap > .login-wrap > .login-content{
+    padding-left: 20px;
+    padding-right: 20px;
+    z-index: 9;
+}
+
+.top-menu > .top-menu-wrap > .login-wrap > .login-content:hover > p{
+    color : #9fc2cb;
+}
+
+.top-menu > .top-menu-wrap > .login-wrap > .login-content.active{
+    position: absolute;
+    margin-top: 50px;
+    right: 0;
+    background-color: rgb(123,123,123,0.7);
+    
+    animation-name : test;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-iteration-count: 1;
+    animation-direction:normal;
+    
+    animation-play-state: running;
+}
+
+@keyframes test{
+    0%{
+        min-width : 0%;
+        min-height: 0%;
+    }
+    50%{
+        min-width : 50%;
+        min-height: 50%;
+    }
+    100%{
+        min-width : 100%;
+        min-height: 100%;
+    }
+}
+.top-menu > .top-menu-wrap > .login-wrap > .login-content.active > p{
+    visibility: hidden;
+}
+
+.top-menu > .top-menu-wrap > .login-wrap > .login-content > .login-form{
+    display: none;
+    cursor: default;
+    padding: 30px;
+}
+.top-menu > .top-menu-wrap > .login-wrap > .login-content > .login-form > p{
+    font-size: 30px;
+    font-weight: 700;
+}
+.top-menu > .top-menu-wrap > .login-wrap > .login-content > .login-form > .input-data{
+    margin-top: 30px;
+}
+.top-menu > .top-menu-wrap > .login-wrap > .login-content > .login-form > .input-data > input{
+    width : 100%;
+    background-color: rgb(123,123,123);
+    border: none;
+    border-bottom: 1px solid #bbb8bb;
+    padding-left: 15px;
+    color : #D7e9ee;
+}
+.top-menu > .top-menu-wrap > .login-wrap > .login-content > .login-form > .input-data > input::placeholder{
+    color : #bbb8bb;
+}
+.top-menu > .top-menu-wrap > .login-wrap > .login-content > .login-form > .input-data > .name{
+    display: none;
+}
+.top-menu > .top-menu-wrap > .login-wrap > .login-content > .login-form > .input-data > .name.active{
+    display: block;
+}
+.top-menu > .top-menu-wrap > .login-wrap > .login-content > .login-form > .login-btn-box{
+    width : 100%;
+    padding-top: 30px;
+}
+.top-menu > .top-menu-wrap > .login-wrap > .login-content > .login-form > .login-btn-box > .signup-btn,
+.top-menu > .top-menu-wrap > .login-wrap > .login-content > .login-form > .login-btn-box > .login{
+    width: 100%;
+    font-size: 20px;
+    background: linear-gradient(150deg,#5c5c5c,#7B7B7B,#5c5c5c);
+    background-position: center;
+    background-size: 200%;
+    transition: 0.4s;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+}
+.top-menu > .top-menu-wrap > .login-wrap > .login-content > .login-form > .login-btn-box > .login:hover{
+    background-position: right;
+    color : #9fc2cb;
+}
+.top-menu > .top-menu-wrap > .login-wrap > .login-content > .login-form > .login-btn-box > .login.active{
+    display: none;
+}
+.top-menu > .top-menu-wrap > .login-wrap > .login-content > .login-form > .login-btn-box > .signup-btn{
+    display: none;
+}
+.top-menu > .top-menu-wrap > .login-wrap > .login-content > .login-form > .login-btn-box > .signup-btn.active{
+    display: block;
+}
+.top-menu > .top-menu-wrap > .login-wrap > .login-content > .login-form > .login-btn-box > .login-btn-box-bottom > div{
+    margin-top: 0px;
+    width : 50%;
+    font-size: 15px;
+    color : #4c4c4c;
+    cursor: pointer;
+}
+.top-menu > .top-menu-wrap > .login-wrap > .login-content > .login-form > .login-btn-box > .login-btn-box-bottom > div:hover{
+    color : #9fc2cb;
+}
+
+
+.top-menu > .top-menu-wrap > .login-wrap > .login-content > .login-form.active{
+    position: absolute;
+    display: block;
+    width : 390px;
+    height: 400px;
+    
+    bottom : 50%;
+    left : 50%;
+    transform: translate(-50%, 50%);
+    
+    transition: 1s;
+    background-color : rgba(123,123,123,1);
+    
+    z-index: 9;
+}
+/*중앙으로 상자가 커지면서 이동 - codepen에서 라이브러리 참고*/
+
+/* top-menu end*/
+
+/* main-cover st */
+.main-cover{
+    width : 100%;
+}
+
+/*애니메이션 배경 넣기*/
+/*아니면 canvas 넣기*/
+.main-cover > .main-cover-img{
+    width : 100%;
+    padding-bottom: 10%; 
+    background-color : #7a7378;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+/* main-cover end*?
+
+/* forum st*/
+.forum-wrap{
+    margin-top: 10px;
+}
+
+.forum-wrap > .forum{
+    padding: 10px;
+    height: 100%;
+}
+
+/* title st */
+.forum-wrap > .forum > .title{
+    width : 100%;
+    position: relative;
+    padding-bottom: 3px;
+    border-bottom: 3px solid #bbb8bb;
+}
+.forum-wrap > .forum > .title > p{
+    font-size: 25px;
+    font-weight: 600;
+    color : #3d3b3e;
+    padding-left : 20px;
+}
+.forum-wrap > .forum > .title > div{
+    position: absolute;
+    right: 0;
+    top : 10px;
+    line-height: 50px;
+}
+.forum-wrap > .forum > .title > div > .search-wrap{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+.forum-wrap > .forum > .title > div > .search-wrap > input{
+    width: auto;
+    font-size: 16px;
+}
+.forum-wrap > .forum > .title > div > .search-wrap > label{
+    font-size: 15px;
+    padding-left: 2px;
+}
+
+.forum-wrap > .forum > .title > div > .search-wrap > .search-box{
+    background-color: #fff;
+    margin-left: 2px;
+}
+
+.forum-wrap > .forum > .title > div > .search-wrap > .search-btn{
+    font-size: 16px;
+    color : #ecedee;
+    background-color: #7a7378;
+    border-radius: 15%;
+    padding: 1px 10px;
+}
+.forum-wrap > .forum > .title > div > .search-wrap > .search-btn.hover{
+    color : #9fc2cb;
+}
+/* title end */
+
+/* board st */
+.forum-wrap > .forum > .board{
+    margin-top: 10px;
+    width : 100%;
+    height: calc(100% - 50px);
+}
+
+.forum-wrap > .forum > .board > .container > .table{
+    width: 100%;
+    text-align: center;
+}
+
+.forum-wrap > .forum > .board > .container > .table > thead{
+    font-size: 15px;
+}
+.forum-wrap > .forum > .board > .container > .table > tbody{
+    font-size: 14px;
+}
+
+.forum-wrap > .forum > .board > .container > .table > thead > tr > th:first-child{
+    width : 8%;
+}
+.forum-wrap > .forum > .board > .container > .table > thead > tr > th:nth-child(2){
+    width : 50%;
+}
+.forum-wrap > .forum > .board > .container > .table > thead > tr > th:nth-child(3){
+    width : 10%;
+}
+.forum-wrap > .forum > .board > .container > .table > thead > tr > th:nth-child(4){
+    width : 8%;
+}
+.forum-wrap > .forum > .board > .container > .table > thead > tr > th:nth-child(5){
+    width : 13%;
+}
+/* board end */
+
+/* write-brn st*/
+.write-wrap{
+    padding : 2px 5px;
+    background-color: #7a7378;
+    border-radius: 15%;
+    color : #ecedee;
+    
+}
+.write-wrap > .write-btn > a{
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    border: none;
+    background-color: inherit;
+}
+.write-wrap > .write-btn > a:hover{
+    color : #9fc2cb;
+}
+/* write-brn end*/
+
+
+.page-wrap{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: auto;
+}
+
+.page-wrap a{
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left : 2px;
+    margin-right : 2px;
+    font-size: 18px;
+    background-color: inherit;
+}
+.page-wrap a:hover{
+    color : red;
+}
+/* forum end*/
+
+
+/* media (max-width : 768px) / board page-wrap ,max-width : 495px login box적용하기*/
+/* Style end */

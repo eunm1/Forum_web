@@ -1,0 +1,62 @@
+/* develop-env start*/
+.report{
+    text-align: center;
+    font-family: sans-serif; /*폰트 설정하기*/
+}
+.report-table{
+    width: 800px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-collapse:separate;
+    border-spacing: 0px 4px;
+}
+
+.report-table th, .report-table td{
+    border-bottom: 0.1px solid #999;
+    padding-bottom: 5px;
+}
+
+.setting > p{
+    font-size: 11px;
+    margin: 0;
+}
+
+/* develop-pro start */
+
+.project-plan{
+    margin: auto;
+    width : 800px;
+    height: 800px;
+    position: relative;
+    font-family: sans-serif;
+    
+    overflow : hidden;
+}
+
+.project-plan img{
+    width : 800px;
+}
+
+.project-plan > div{
+    font-size: 16px;
+}
+
+.chain-wrap{
+    position: absolute;
+    width : calc(800px * 13);
+    height: 100%;
+    transition: 0.1s;
+}
+
+.chain-wrap > ul{
+    width: 100%;
+    height: 100%;
+}
+
+.chain-wrap > ul > li{
+    float: left;
+    width: 800px;
+    height: 100%;
+}
